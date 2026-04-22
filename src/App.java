@@ -69,7 +69,7 @@ public class App {
     private static void MostrarAltaProducto() {
         try {
             System.out.println("Ingrese el nombre del producto:");
-            scanner.nextLine(); // consumir el salto de línea pendiente tras nextInt()
+            scanner.nextLine(); 
             String nombre = scanner.nextLine();
 
             System.out.println("Ingrese el precio del producto:");
@@ -83,6 +83,8 @@ public class App {
             productoService.agregarProducto(producto);
 
             System.out.println("Producto agregado exitosamente.");
+            
+            MostrarEnterParaContinuar();
         } catch (Exception e) {
             System.out.println("Error al agregar el producto: " + e.getMessage());
         }
@@ -90,6 +92,7 @@ public class App {
     
     private static void MostrarListadoProductos() {
         productoService.listarProductos();
+        MostrarEnterParaContinuar();
     }
 
     private static void MostrarEliminarProducto() {
@@ -98,6 +101,7 @@ public class App {
         int id = scanner.nextInt();
         productoService.eliminarProducto(id);
         System.out.println("Producto eliminado exitosamente.");
+        MostrarEnterParaContinuar();
     }
 
     private static void MostrarCrearPedido() {
@@ -128,6 +132,7 @@ public class App {
             if (!respuesta.equalsIgnoreCase("s")) {
                 pedidoService.crearPedido(pedido);
                 grabar = true;
+                MostrarEnterParaContinuar();
             }
 
         }
@@ -135,6 +140,7 @@ public class App {
 
     private static void MostrarListadoPedidos() {
         pedidoService.listarPedidos();
+        MostrarEnterParaContinuar();
     }
     
     private static void GenerarProductos() {
@@ -142,5 +148,11 @@ public class App {
         productoService.agregarProducto(new Producto(productoService.GetNextId(), "Pepsi", 1400, 80));
         productoService.agregarProducto(new Producto(productoService.GetNextId(), "Fanta", 1300, 60));
         productoService.agregarProducto(new Producto(productoService.GetNextId(), "RD Tacuil", 30000, 10));
+    }
+
+    private static void MostrarEnterParaContinuar() {
+        System.out.println("Presione ENTER para continuar...");
+        scanner.nextLine(); 
+        scanner.nextLine(); 
     }
 }
