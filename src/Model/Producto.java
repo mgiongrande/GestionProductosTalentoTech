@@ -47,4 +47,8 @@ public class Producto {
         }
         this.cantidad = cantidad;
     }
+
+    public void actualizarCantidad(int cantidad) {
+        setCantidad(this.cantidad-cantidad);
+    }
 }

@@ -23,7 +23,7 @@ public class PedidoService {
             System.out.println(
                 "Pedido ID: " + pedido.getId() + " con " + pedido.getItems().size() 
                 + " items, Total: " + pedido.getTotal()
-                + " - Estado: " + pedido.getEstado() // Muestra el nombre del primer producto del pedido
+                + " - Estado: " + pedido.getEstado() 
             );
         }
     }

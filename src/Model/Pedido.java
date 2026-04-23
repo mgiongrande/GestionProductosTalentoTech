@@ -9,11 +9,11 @@ public class Pedido {
 
     public Pedido(int id) {
         this.id = id;
-        this.estado = EstadoPedido.EnProceso;
+        this.estado = EstadoPedido.EN_PROCESO;
     }
 
     public void agregarItem(Producto producto, int cantidad) {
-        if (this.estado != EstadoPedido.EnProceso) {
+        if (this.estado != EstadoPedido.EN_PROCESO) {
             System.out.println("No se pueden agregar items a un pedido que no está en proceso.");
             return;
         }
@@ -41,6 +41,6 @@ public class Pedido {
     }
 
     public String getEstado() {
-        return estado.name();
+        return estado.getDescripcion();
     }
 }

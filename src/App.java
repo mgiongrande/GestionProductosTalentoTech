@@ -24,10 +24,9 @@ public class App {
         System.out.println("5) Crear pedido");
         System.out.println("6) Listar pedidos");
         System.out.println("7) Salir");
-        System.out.println("Ingrese una opción:");
+        System.out.print("Ingrese una opción: ");
 
         int opcion = scanner.nextInt();
-        System.out.println("Opción seleccionada: " + opcion);
 
         ProcesarOpcion(opcion);
     }
@@ -84,9 +83,12 @@ public class App {
 
             System.out.println("Producto agregado exitosamente.");
             
-            MostrarEnterParaContinuar();
+            //MostrarEnterParaContinuar();
         } catch (Exception e) {
             System.out.println("Error al agregar el producto: " + e.getMessage());
+            //MostrarEnterParaContinuar();
+        } finally {
+            MostrarEnterParaContinuar();
         }
     }      
     
@@ -127,11 +129,13 @@ public class App {
             }
 
             pedido.agregarItem(producto, cantidad);
+            producto.actualizarCantidad(cantidad);
             System.out.println("¿Desea agregar otro producto? (s/n)");
             String respuesta = scanner.next();
             if (!respuesta.equalsIgnoreCase("s")) {
                 pedidoService.crearPedido(pedido);
                 grabar = true;
+                System.out.println("Pedido agregado exitosamente.");
                 MostrarEnterParaContinuar();
             }
 

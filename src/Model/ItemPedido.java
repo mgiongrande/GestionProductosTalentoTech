@@ -3,18 +3,18 @@ package Model;
 import java.util.ArrayList;
 
 public class ItemPedido {
-    private ArrayList<Producto> productos;
+    private ArrayList<ProductoPedido> productos;
     private double total = 0;
 
     public ItemPedido(Producto producto, int cantidad) {
         this.productos = new ArrayList<>();
         for (int i = 0; i < cantidad; i++) {
-            this.productos.add(producto);
+            this.productos.add(new ProductoPedido(producto));
             this.total += producto.getPrecio();
         }
     }
 
-    public ArrayList<Producto> getProductos() {
+    public ArrayList<ProductoPedido> getProductos() {
         return productos;
     }
 
